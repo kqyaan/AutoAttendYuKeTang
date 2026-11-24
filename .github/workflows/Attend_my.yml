@@ -31,7 +31,10 @@ jobs:
           key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('yarn.lock') }}
 
       - name: Install dependencies
-        run: yarn install --registry https://registry.npmmirror.com
+        run: |
+          rm -f yarn.lock
+          yarn config set strict-ssl false
+          yarn install --registry https://registry.npmmirror.com
   
       - name: Run
         run: node src/index.js
@@ -64,7 +67,10 @@ jobs:
           key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('yarn.lock') }}
 
       - name: Install dependencies
-        run: yarn install --registry https://registry.npmmirror.com
+        run: |
+          rm -f yarn.lock
+          yarn config set strict-ssl false
+          yarn install --registry https://registry.npmmirror.com
 
       - name: Run
         run: node src/index.js
@@ -97,7 +103,10 @@ jobs:
           key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('yarn.lock') }}
 
       - name: Install dependencies
-        run: yarn install --registry https://registry.npmmirror.com
+        run: |
+          rm -f yarn.lock
+          yarn config set strict-ssl false
+          yarn install --registry https://registry.npmmirror.com
 
       - name: Run
         run: node src/index.js
